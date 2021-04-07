@@ -1,0 +1,117 @@
+extends ../base.pug
+block style
+  include style.css
+block title
+  | Index Page
+block main
+  h1 page index-pug
+  ul
+    li Item A
+    li Item B
+    li Item C
+  p This is plain old <em>text</em> content.
+  p
+    | The pipe always goes at the beginning of its own line,
+    | not counting indentation.
+
+  a(href='google.com')
+    |Google
+  p
+    | The pipe always goes at the beginning of its own line,
+    | not counting indentation.
+  p
+    | The pipe always goes at the beginning of its own line,
+    | not counting indentation.
+  ul
+    li Item A
+    li Item B
+    li Item C
+
+  a(href='google.com')
+
+  a(href='google.com' class='test') Google
+
+  input(
+  type='checkbox'
+  name='agreement'
+  checked
+  )/
+
+  - var url = 'pug-test.html';
+  a(href='/' + url) Link
+  |
+  |
+  - url = 'https://example.com/'
+  a(href=url) Another link
+
+  - var classes = ['foo', 'bar', 'baz']
+  a(class=classes)
+  |
+  |
+  //- the class attribute may also be repeated to merge arrays
+  a.bang(class=classes class=['bing'])
+
+  - var friends = 1
+  case friends
+    when 0
+      p you have no friends
+    when 1
+      p you have a friend
+    default
+      p you have #{friends} friends
+
+
+  ul
+    each val, index in ['zero', 'one', 'two']
+      li= index + ': ' + val
+
+  - var values = [];
+  ul
+    each val in values
+      li= val
+    else
+      li There are no values
+
+  - for (var x = 0; x < 3; x++)
+    li item
+
+  p
+    = 'This code is <escaped>!'
+
+  // just some paragraphs
+  //- will not output within markup
+  p foo
+  p bar
+
+  //-
+    Comments for your template writers.
+    Use as much text as you want.
+  //
+    Comments for your HTML readers.
+    Use as much text as you want.
+
+  - var user = { description: 'foo bar baz' }
+  - var authorised = false
+  #user
+    if user.description
+      h2.green Description
+      p.description= user.description
+    else if authorised
+      h2.blue Description
+      p.description.
+        User has no description,
+        why not add one...
+    else
+      h2.red Description
+      p.description User has no description
+
+  - var title = "On Dogs: Man's Best Friend";
+  - var author = "enlore";
+  - var theGreat = "<span>escape!</span>";
+
+  h1= title
+  p Written with love by #{author}
+  p This will be safe: !{theGreat}
+
+  script
+    include script.js
