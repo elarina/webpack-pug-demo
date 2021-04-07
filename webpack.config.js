@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: "development",
+  devServer: {
+    contentBase: './dist',
+  },
   entry: {
     'index': './src/pages/index/index.pug',
     'blog': './src/pages/blog/blog.pug'

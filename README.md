@@ -15,6 +15,8 @@ npm install html-webpack-plugin --save-dev
 
 npm install html-cli --save-dev
 
+npm install webpack-dev-server --save-dev
+
 ==============
 
 For run build execute:
